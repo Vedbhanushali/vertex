@@ -7,10 +7,8 @@ import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import {
   ChartConfig,
@@ -20,13 +18,21 @@ import {
 } from "@/components/ui/chart";
 import { Button } from "./components/ui/button";
 import { Separator } from "@radix-ui/react-separator";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./components/ui/select";
 const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
+  { month: "January", sale: 186 },
+  { month: "February", sale: 305 },
+  { month: "March", sale: 237 },
+  { month: "April", sale: 73 },
+  { month: "May", sale: 209 },
+  { month: "June", sale: 214 },
 ];
 
 const chartConfig = {
@@ -71,12 +77,59 @@ export default function Page() {
         </header>
         <div className="m-10">
           <span className="text-5xl font-semibold text-white">Overview</span>
-          <div className="flex gap-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Line Chart - Linear</CardTitle>
-                <CardDescription>January - June 2024</CardDescription>
+          <div className="flex gap-2 mt-8">
+            <Card className="w-[650px]">
+              <CardHeader className="flex gap-2">
+                <Select>
+                  <SelectTrigger className="w-[160px]">
+                    <SelectValue placeholder="Visitor" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="1">Visitor</SelectItem>
+                      <SelectItem value="2">Connections</SelectItem>
+                      <SelectItem value="3">Interactions</SelectItem>
+                      <SelectItem value="4">Impressions</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Last 30 days" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="1">Today</SelectItem>
+                      <SelectItem value="2">Yesterday</SelectItem>
+                      <SelectItem value="3">This Week</SelectItem>
+                      <SelectItem value="4">Last Week</SelectItem>
+                      <SelectItem value="5">Last 7 days</SelectItem>
+                      <SelectItem value="6">Last 30 days</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+                <Select>
+                  <SelectTrigger className="w-[160px]">
+                    <SelectValue placeholder="+ Add" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="2">Connections</SelectItem>
+                      <SelectItem value="3">Interactions</SelectItem>
+                      <SelectItem value="4">Impressions</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </CardHeader>
+              <div className="flex flex-col space-y-1.5 ml-6">
+                <div className="flex gap-4 items-center">
+                  <span className="text-5xl font-bold">13.49K</span>
+                  <div className="flex flex-col items-center justify-center">
+                    <span className="text-green-400">+469%</span>
+                    <span>(897)</span>
+                  </div>
+                </div>
+              </div>
               <CardContent>
                 <ChartContainer config={chartConfig}>
                   <LineChart
@@ -100,24 +153,15 @@ export default function Page() {
                       content={<ChartTooltipContent hideLabel />}
                     />
                     <Line
-                      dataKey="desktop"
+                      dataKey="sale"
                       type="linear"
-                      stroke="var(--color-desktop)"
+                      stroke="white"
                       strokeWidth={2}
                       dot={false}
                     />
                   </LineChart>
                 </ChartContainer>
               </CardContent>
-              <CardFooter className="flex-col items-start gap-2 text-sm">
-                <div className="flex gap-2 font-medium leading-none">
-                  Trending up by 5.2% this month{" "}
-                  <TrendingUp className="h-4 w-4" />
-                </div>
-                <div className="leading-none text-muted-foreground">
-                  Showing total visitors for the last 6 months
-                </div>
-              </CardFooter>
             </Card>
             <Card className="w-[350px]">
               <CardHeader>
