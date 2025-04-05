@@ -12,12 +12,7 @@ import {
 const data = {
   logo: {
     name: "Vertexlabs, Inc",
-    avatar: "/logo.png",
-  },
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "./logo.png",
   },
   dashboard: [
     "Dashboard",
@@ -48,7 +43,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   {d}
                 </span>
               </div>
-              // className="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground
             ))}
           </SidebarGroupContent>
         </SidebarGroup>
