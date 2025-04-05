@@ -1,7 +1,7 @@
 import { AppSidebar } from "./components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "./components/ui/sidebar";
 
-import { TrendingUp, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import {
