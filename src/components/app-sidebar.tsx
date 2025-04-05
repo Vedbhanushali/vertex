@@ -1,18 +1,12 @@
 import * as React from "react";
-import { Plus } from "lucide-react";
 
-import { NavLogo, UserLogo } from "./nav-user";
+import { NavLogo } from "./nav-user";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarRail,
 } from "@/components/ui/sidebar";
 
 const data = {
