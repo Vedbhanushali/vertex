@@ -78,7 +78,7 @@ export default function Page() {
         <div className="m-10">
           <span className="text-5xl font-semibold text-white">Overview</span>
           <div className="flex gap-2 mt-8">
-            <Card className="w-[650px]">
+            <Card className="w-[500px]">
               <CardHeader className="flex gap-2">
                 <Select>
                   <SelectTrigger className="w-[160px]">
@@ -130,7 +130,7 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <CardContent>
+              <CardContent className="h-[250px]">
                 <ChartContainer config={chartConfig}>
                   <LineChart
                     accessibilityLayer
